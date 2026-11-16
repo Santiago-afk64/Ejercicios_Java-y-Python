@@ -1,1 +1,35 @@
+import java.util.Scanner;
 
+public class AsignaciónBecas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el promedio de estudiantes:");
+        double promedio = sc.nextDouble();
+        System.out.println("Ingrese el número de materias reprobadas:");
+        int materiasReprobadas = sc.nextInt();
+        System.out.println("Es estudiantea de primer ciclo? (S o N)");
+        char PrimerCiclo = sc.next().charAt(0);
+        double PorcentajeBeca = 0.0;
+
+        if (promedio >= 9.0 && materiasReprobadas == 0 && (PrimerCiclo == 'S' || PrimerCiclo == 's')) {
+            PorcentajeBeca = 100.0;
+        } else {
+            if (promedio >= 8.0 && materiasReprobadas <= 1) {
+                PorcentajeBeca = 70.0;
+            } else {
+                if (promedio >= 7.0 && materiasReprobadas <= 2) {
+                    PorcentajeBeca = 40.0;
+                } else {
+                    PorcentajeBeca = 0.0;
+                }
+            }
+        }
+        System.out.println("El porcentaje de la beca es: " + PorcentajeBeca + "%");
+        if (PorcentajeBeca > 0.0) {
+            System.out.println("Solicitud de beca aprobada.");
+        } else {
+            System.out.println("Solicitud de beca rechazada.");
+        }
+        sc.close();
+    }
+}
