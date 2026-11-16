@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class PrestamoInteresCompuesto {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+
+        System.out.print("Ingrese el monto del préstamo: ");
+        double prestamo = sc.nextDouble();
+        System.out.print("Ingrese la tasa de interés trimestral en decimal: ");
+        double tasa = sc.nextDouble();
+        System.out.print("Ingrese el número de trimestres: ");
+        int trimestres = sc.nextInt();
+        System.out.print("Ingrese el porcentaje de abono extraordinario: ");
+        double porcentajeAbono = sc.nextDouble();
+
+        double montoTotal = prestamo * Math.pow(1 + tasa, trimestres);
+        double valorAbono = montoTotal * (porcentajeAbono / 100);
+        double montoFinal = montoTotal - valorAbono;
+
+        System.out.printf("Monto antes del abono: %.2f%n", montoTotal);
+        System.out.printf("Valor del abono: %.2f%n", valorAbono);
+        System.out.printf("Monto final a cancelar: %.2f%n", montoFinal);
+
+        sc.close();
+    }
+}
